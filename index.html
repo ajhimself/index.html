@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Web Design Blog</title>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      alert("Welcome to my website!");
+    });
+
+    function showSection(section) {
+      const sections = ['main-content', 'about-section', 'contact-section', 'gallery-4x4', 'dashboard-section', 'my-space'];
+      sections.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+      document.getElementById(section).style.display = 'block';
+    }
+
+    window.onload = function () {
+      showSection('main-content');
+    };
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      flex: 1;
+      line-height: 1.8;
+    }
+
+    header {
+      background: #000;
+      padding: 40px 0;
+      text-align: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      background: #000;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #f0a500;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .main-content,
+    .about-section,
+    .contact-section,
+    .gallery-4x4,
+    .dashboard-section,
+    #my-space {
+      display: none;
+      background: #000;
+      padding: 40px;
+      color: white;
+      border-radius: 12px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .main-content:hover,
+    .about-section:hover,
+    .contact-section:hover,
+    .gallery-4x4:hover,
+    .dashboard-section:hover,
+    #my-space:hover {
+      transform: scale(1.02);
+    }
+
+    .html-topics {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .html-topics h3 {
+      margin-bottom: 10px;
+    }
+
+    .html-links a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+
+    .html-links a.intro:hover { color: #ff6347; }
+    .html-links a.semantics:hover { color: #32cd32; }
+    .html-links a.forms:hover { color: #1e90ff; }
+    .html-links a.media:hover { color: #ff1493; }
+
+    .contact-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .contact-section button {
+      background: #000;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-section button:hover {
+      background: #444;
+    }
+
+    .map-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .gallery-4x4 .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1280px;
+      margin: auto;
+      margin-top: 40px;
+    }
+
+    .gallery-4x4 img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .gallery-4x4 iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      border: none;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+    }
+
+    button {
+      background-color: #000;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    textarea {
+      background-color: #111;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome To My Webpage</h1>
+      <p>Sharing knowledge about Web Design, HTML5, CSS, and JavaScript</p>
+    </header>
+
+    <nav>
+      <a href="#" onclick="showSection('main-content')">Home</a>
+      <a href="#" onclick="showSection('dashboard-section')">Dashboard</a>
+      <a href="#" onclick="showSection('about-section')">About Me</a>
+      <a href="#" onclick="showSection('gallery-4x4')">Gallery</a>
+      <a href="#" onclick="showSection('my-space')">My Space</a>
+      <a href="#" onclick="showSection('contact-section')">Contact Me</a>
+    </nav>
+
+    <div class="content">
+      <div id="main-content" class="main-content">
+        <h2>Understanding HTML5 Semantics</h2>
+        <p>HTML5 introduced new semantic elements that improve the structure of web pages, making them more accessible and responsive for modern web development.</p>
+
+        <div class="html-topics">
+          <h3>HTML5 Topics</h3>
+          <div class="html-links">
+            <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" class="intro" target="_blank">Introduction to HTML5</a>
+            <a href="https://www.youtube.com/watch?v=qz0aGYrrlhU" class="semantics" target="_blank">HTML5 Semantic Elements</a>
+            <a href="https://www.youtube.com/watch?v=KJ13lX20FqU" class="forms" target="_blank">HTML5 Forms and Input Types</a>
+            <a href="https://www.youtube.com/watch?v=EO6OkltgudE" class="media" target="_blank">HTML5 Multimedia (Audio and Video)</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="about-section" class="about-section">
+        <h2>About Me</h2>
+        <div class="about-content">
+          <img src="c:\Users\ella\OneDrive\Desktop\Francisco\IMAGES\60184aad-cfa2-403b-9079-613df2563f35.jpg" alt="Your Photo" class="about-photo">
+          <p>Welcome to my website! I am passionate about design, technology, and modern web development. My mission is to share useful knowledge about HTML5, CSS, JavaScript, and creative web techniques for students and aspiring developers.</p>
+        </div>
+        <button onclick="window.location.href='mailto:your-email@example.com'">Contact Me</button>
+      </div>
+
+     <div id="contact-section" class="contact-section">
+  <h2>Contact Us</h2>
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send</button>
+    <p id="form-response" style="color: lightgreen; margin-top: 10px;"></p>
+  </form>
+
+  <div class="map-section">
+    <h3>How to Get Here</h3>
+    <p>We're located at 900 San Marcelino St Ermita Manila via Google Maps:</p>
+    <iframe src="https://www.google.com/maps?q=900+San+Marcelino+St,+Ermita,+Manila&output=embed"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+    const responseText = document.getElementById("form-response");
+
+    fetch("https://formspree.io/f/xzzrowgy", {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          responseText.textContent = "✅ Message sent successfully!";
+          responseText.style.color = "lightgreen";
+          form.reset();
+        } else {
+          responseText.textContent = "❌ There was an error. Try again later.";
+          responseText.style.color = "red";
+        }
+      })
+      .catch(() => {
+        responseText.textContent = "⚠️ Network error. Please try again.";
+        responseText.style.color = "orange";
+      });
+  });
+</script>
+
+      <div id="gallery-4x4" class="gallery-4x4">
+        <h2 style="text-align:center;">4x4 Gallery - 4 Photos & 4 Videos</h2>
+        <div class="gallery-grid">
+          <img src="https://media.pitchfork.com/photos/5fe1fc4eb35e0eefa6919e92/1:1/w_1080,h_1080,c_limit/Playboi-Carti.jpg" alt="Photo 1">
+          <img src="https://media.pitchfork.com/photos/652da0bdfa3d197096c96315/1:1/w_3000,h_3000,c_limit/Ken%20Carson%20-%20A%20Great%20Chaos.jpg" alt="Photo 2">
+          <img src="https://cdn-images.dzcdn.net/images/cover/209d26949458f7b0a672062cece4e4d8/0x1900-000000-80-0-0.jpg" alt="Photo 3">
+          <img src="https://i.scdn.co/image/ab67616d0000b273616033c26de5de987fc59434" alt="Photo 4">
+
+          <iframe src="https://tube.rvere.com/embed?v=KnumAWWWgUE" allowfullscreen></iframe>
+          <iframe src="https://tube.rvere.com/embed?v=CSMiPngo4uE" allowfullscreen></iframe>
+          <iframe src="https://tube.rvere.com/embed?v=uwTtv0ZsqgQ" allowfullscreen></iframe>
+          <iframe src="https://tube.rvere.com/embed?v=HMsGAM_qBDU" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div id="dashboard-section" class="dashboard-section">
+        <h2>Dashboard</h2>
+        <p>Welcome to your dashboard! This is where you can view stats, manage content, or add future admin tools.</p>
+
+        <div class="html-topics">
+          <h3>Quick Links</h3>
+          <div class="html-links">
+            <a href="#" class="intro">View Site Analytics</a>
+            <a href="#" class="semantics">Manage Posts</a>
+            <a href="#" class="forms">Edit Profile</a>
+            <a href="#" class="media">Settings</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="my-space" class="dashboard-section">
+        <h2>My Space – Personal Menu</h2>
+        <p>This is your personal area to store notes, bookmarks, and track your learning progress.</p>
+
+        <div class="html-topics">
+          <h3>Quick Access</h3>
+          <div class="html-links">
+            <a href="#" class="intro">My Bookmarks</a>
+            <a href="#" class="semantics">Learning Notes</a>
+            <a href="#" class="forms">To-Do List</a>
+            <a href="#" class="media">Saved Videos</a>
+          </div>
+        </div>
+
+        <div class="html-topics" style="margin-top: 30px;">
+          <h3>Personal Notes</h3>
+          <textarea placeholder="Write your thoughts or reminders here..." rows="6"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 My Blog. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
